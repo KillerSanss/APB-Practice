@@ -1,3 +1,4 @@
+using Domain.Enums;
 using FluentValidation;
 using Transaction = Domain.Entities.Transaction;
 
@@ -18,6 +19,11 @@ public class TransactionValidator : AbstractValidator<Transaction>
         RuleFor(d => d.MoneyAmount)
             .NotNull().WithMessage(ValidationMessages.NullError)
             .NotEmpty().WithMessage(ValidationMessages.EmptyError);
+        
+        RuleFor(d => d.TransactionType)
+            .NotNull().WithMessage(ValidationMessages.NullError)
+            .NotEmpty().WithMessage(ValidationMessages.EmptyError)
+            .Must(value => Enum.IsDefined(typeof(TransactionType), value)).WithMessage(ValidationMessages.TransactionTypeError);
         
         RuleFor(d => d.UserId)
             .NotNull().WithMessage(ValidationMessages.NullError)

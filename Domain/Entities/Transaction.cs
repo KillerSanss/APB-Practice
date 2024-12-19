@@ -1,3 +1,4 @@
+using Domain.Enums;
 using Domain.Validations.Validators;
 using FluentValidation;
 
@@ -19,6 +20,11 @@ public class Transaction : BaseEntity
     public decimal MoneyAmount { get; set; }
     
     /// <summary>
+    /// Тип транзакции
+    /// </summary>
+    public TransactionType TransactionType { get; set; }
+    
+    /// <summary>
     /// Идентификатор пользователя
     /// </summary>
     public Guid UserId { get; set; }
@@ -37,25 +43,28 @@ public class Transaction : BaseEntity
     /// Навигационное поле Card
     /// </summary>
     public Card Card { get; set; }
-    
+
     /// <summary>
     /// Конструктор
     /// </summary>
     /// <param name="id">Идентификатор.</param>
     /// <param name="transactionDate">Дата транзакции.</param>
     /// <param name="moneyAmount">Кол-во денег.</param>
+    /// <param name="transactionType">Тип транзакции.</param>
     /// <param name="userId">Идентификатор пользователя.</param>
     /// <param name="cardId">Идентификатор карты.</param>
     public Transaction(
         Guid id,
         DateTime transactionDate,
         decimal moneyAmount,
+        TransactionType transactionType,
         Guid userId,
         Guid cardId)
     {
         SetId(id);
         TransactionDate = transactionDate;
         MoneyAmount = moneyAmount;
+        TransactionType = transactionType;
         UserId = userId;
         CardId = cardId;
         

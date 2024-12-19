@@ -21,7 +21,7 @@ public class CardValidator : AbstractValidator<Card>
             .NotEmpty().WithMessage(ValidationMessages.EmptyError)
             .Length(3).WithMessage(ValidationMessages.Strict3LengthError);
 
-        RuleFor(d => d.Cvv)
+        RuleFor(d => d.Pin)
             .NotNull().WithMessage(ValidationMessages.NullError)
             .NotEmpty().WithMessage(ValidationMessages.EmptyError)
             .Length(4).WithMessage(ValidationMessages.Strict4LengthError);
@@ -31,8 +31,6 @@ public class CardValidator : AbstractValidator<Card>
             .NotEmpty().WithMessage(ValidationMessages.EmptyError);
         
         RuleFor(d => d.Balance)
-            .NotNull().WithMessage(ValidationMessages.NullError)
-            .NotEmpty().WithMessage(ValidationMessages.EmptyError)
             .GreaterThanOrEqualTo(0).WithMessage(ValidationMessages.NegativeNumberError);
         
         RuleFor(d => d.Currency)

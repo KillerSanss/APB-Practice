@@ -15,5 +15,6 @@ public static class ValidationMessages
     public const string EmailError = "Неверный формат электронной почты. Пример: example@gmail.com";
     public const string CardNumberError = "Неверный формат номера карты. Пример: 1234 4567 7890 1234";
     public const string CurrencyError = "Неверный тип валюты";
+    public const string TransactionTypeError = "Неверный тип транзакции";
     public const string FutureDateError = "Дата не может быть в будущем";
 }
