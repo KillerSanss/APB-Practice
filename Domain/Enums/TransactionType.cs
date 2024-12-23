@@ -5,6 +5,7 @@ namespace Domain.Enums;
 /// </summary>
 public enum TransactionType
 {
+    None = 0,
     Withdrawal = 1,
     Deposit = 2,
     Transfer = 3,

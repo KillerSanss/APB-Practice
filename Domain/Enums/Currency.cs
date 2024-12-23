@@ -5,6 +5,7 @@ namespace Domain.Enums;
 /// </summary>
 public enum Currency
 {
+    None = 0,
     Usd = 1,
     Eur = 2,
     Rub = 3
