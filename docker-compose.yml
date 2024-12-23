@@ -1,0 +1,13 @@
+﻿services:
+  api:
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+    container_name: apb_api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=host.docker.internal;Port=5432;Database=ApbDatabase;Username=postgres;Password=7733
+    ports:
+      - "5121:80"
+      - "5122:443"
+  
